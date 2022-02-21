@@ -1,0 +1,5 @@
+[2021-11-03 14:37:07,358] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_add_arealabel
+[2021-11-03 14:37:12,215] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_search_arealabel
+[2021-11-03 14:37:21,512] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_edit_arealabel
+[2021-11-03 14:37:26,334] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_setdefault_arealabel
+[2021-11-03 14:37:28,717] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_delete_arealabel
