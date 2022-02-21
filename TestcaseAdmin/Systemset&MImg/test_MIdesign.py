@@ -13,12 +13,10 @@ from src.public.common.Search_Item import *
 
 class Test_MImanage:
     def setup_class(self):
-        admin_login(username, password)
+        sleep(2)
         login_mimanage()
         sleep(2)
 
-    def teardown_class(self):
-        admin_logout()
 
     # 新增MI
     def test_mimanage_add(self):

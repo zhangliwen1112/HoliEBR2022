@@ -23,14 +23,16 @@ def login_mimanage():
 def mimanage_add(addcode):
     new_click(add)
     new_send_keys(code, addcode)
-    new_click(yes_button)
+    ele = new_find_elements(yes_button)
+    new_click_ele(ele[1])
 
 
 # 编辑MI
 def mimanage_edit(editdesc):
     new_click(edit)
     new_send_keys(desc, editdesc)
-    new_click(yes_button)
+    ele = new_find_elements(yes_button)
+    new_click_ele(ele[1])
 
 
 # 删除MI

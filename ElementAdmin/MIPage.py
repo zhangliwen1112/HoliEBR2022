@@ -22,7 +22,7 @@ publish = "//button[contains(.,'发布')]"
 # 新增/编辑MI
 code = "//input[@placeholder='请按照格式要求填写数据']"
 desc = "//input[@class='ivu-input ivu-input-default' and @maxlength='50']"
-yes_button = "//button[@class='ivu-btn ivu-btn-primary']//span[text()='确定']"
+yes_button = "//button[@class='ivu-btn ivu-btn-primary']//span[contains(text(),'确定')]"
 cancel_button = '//div[@class="ivu-modal-footer"]//span[contains(text(),"取消")]'
 
 # 删除界面
