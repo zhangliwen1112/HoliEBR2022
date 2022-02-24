@@ -23,19 +23,23 @@ def formula_copy():
 def formula_add_web(formula_name, formula_type, reference_num, reference_unit, equivalent_weight, weight_unit):
     new_click(add)
     sleep(1)
-    new_type(name, formula_name)
+    F_name = new_find_elements(name)
+    new_type_ele(F_name[1], formula_name)
     sleep(1)
-    new_click(type)
+    ele = new_find_elements(select_selections)
+    new_click_ele(ele[0])
     if formula_type == '测试/研发':
         new_click(type1)
     else:
         new_click(type2)
-    new_click(product_code)
+    product_code = new_find_elements(product)
+    new_click_ele(product_code[1])
     sleep(1)
     new_click(product_search1)
-    new_type(r_num, reference_num)
+    num = new_find_elements(input_text)
+    new_type_ele(num[7], reference_num)
     sleep(1)
-    new_click(r_unit)
+    new_click_ele(ele[4])
     if reference_unit == 'mg':
         new_click(unit1)
     elif reference_unit == 'g':
@@ -44,7 +48,7 @@ def formula_add_web(formula_name, formula_type, reference_num, reference_unit, e
         new_click(unit3)
     new_type(weight, equivalent_weight)
     sleep(1)
-    new_click(w_unit)
+    new_click_ele(ele[5])
     if weight_unit == 'mg':
         driver.find_elements_by_xpath(unit1)[1].click()
     elif weight_unit == 'g':
@@ -62,18 +66,23 @@ def formula_add_web(formula_name, formula_type, reference_num, reference_unit, e
 
 
 # 编辑 处方页面
-def formula_edit_web(formula_name, reference_num, reference_unit, equivalent_weight, weight_unit):
+def formula_edit_web(formula_name, formula_type,reference_num, reference_unit, equivalent_weight, weight_unit):
     new_click(edit)
     sleep(1)
-    new_type_double(name, formula_name)
-    new_click(type)
-    new_click(type1)
-    new_click(product_code)
+    F_name = new_find_elements(name)
+    new_type_double_ele(F_name[1], formula_name)
+    ele = new_find_elements(select_selections)
+    new_click_ele(ele[0])
+    if formula_type == '测试/研发':
+        new_click(type1)
+    else:
+        new_click(type2)
+
+    num = new_find_elements(input_text)
+    new_type_double_ele(num[7], reference_num)
+
     sleep(1)
-    new_click(product_search2)
-    new_type_double(r_num, reference_num)
-    sleep(1)
-    new_click(r_unit)
+    new_click_ele(ele[4])
     if reference_unit == 'mg':
         new_click(unit1)
     elif reference_unit == 'g':
@@ -82,7 +91,7 @@ def formula_edit_web(formula_name, reference_num, reference_unit, equivalent_wei
         new_click(unit3)
     new_type_double(weight, equivalent_weight)
     sleep(1)
-    new_click(w_unit)
+    new_click_ele(ele[5])
     if weight_unit == 'mg':
         driver.find_elements_by_xpath(unit1)[1].click()
     elif weight_unit == 'g':
@@ -99,20 +108,25 @@ def formula_edit_web(formula_name, reference_num, reference_unit, equivalent_wei
 
 
 # 新增处方物料
-def formula_add_material_001(maternum, unit):
+def formula_add_material(maternum, unit):
     new_click(material_add)
     sleep(1)
-    new_click(material_name)
-    driver.find_elements_by_xpath(material_search1)[1].click()
-    new_click(material_tail)
+    product_code = new_find_elements(product)
+    new_click_ele(product_code[2])
+    driver.find_elements_by_xpath(product_search1)[1].click()
+    # new_click(material_tail)
+
+    num = new_find_elements(input_text)
+    selections = new_find_elements(select_selections)
+
     # 获取补偿器输入框是否可点击
-    value = new_get_text(compensator)
+    value = new_get_text_ele(selections[6])
     if len(value) == 0:
-        new_click(compensator)
+        new_click_ele(selections[6])
         new_click(no_compensator)
-        new_type(material_num, maternum)
+        new_type_ele(num[4], maternum)
         sleep(1)
-        new_click(material_unit)
+        new_click_ele(selections[7])
         if unit == 'mg':
             driver.find_elements_by_xpath(unit1)[2].click()
         elif unit == 'g':
@@ -123,9 +137,9 @@ def formula_add_material_001(maternum, unit):
             driver.find_elements_by_xpath(unit3)[2].click()
         new_click(material_yes)
     else:
-        new_type(material_num, maternum)
+        new_type_ele(num[4], maternum)
         sleep(1)
-        new_click(material_unit)
+        new_click_ele(selections[7])
         if unit == 'mg':
             driver.find_elements_by_xpath(unit1)[2].click()
         elif unit == 'g':

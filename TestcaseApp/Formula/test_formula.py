@@ -2,7 +2,7 @@
 # @Time : 2021/1/10 15:30
 # @Author : 张丽雯
 # @File : test_formula.py
-# @中文描述 :  处方管理
+# @中文描述 :  配方管理
 import sys
 import pytest
 from DataApp.FormulaData import *
@@ -36,7 +36,7 @@ class Test_Formula:
     # @pytest.mark.skip
     def test_formula_003(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        formula_edit_web(edit_name, edit_num, edit_r_unit, edit_weight, edit_w_unit)
+        formula_edit_web(edit_name,edit_type, edit_num, edit_r_unit, edit_weight, edit_w_unit)
         assert new_page_source(edit_name)
 
 
@@ -44,7 +44,7 @@ class Test_Formula:
     @pytest.mark.parametrize('num',['20','2500'])
     def test_formula_004(self, num):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        formula_add_material_001(num,m_unit)
+        formula_add_material(num,m_unit)
         assert "保存成功" in new_get_text(alert_txt)
 
     # 删除处方物料
@@ -113,7 +113,7 @@ class Test_Formula:
         sleep(1)
         search_item('名称', add_name2)
         sleep(1)
-        formula_add_material_001(num, m_unit)
+        formula_add_material(num, m_unit)
         sleep(1)
         formula_submit()
         sleep(1)
