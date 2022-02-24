@@ -7,9 +7,9 @@ Created on 2020/10/15
 """
 import random
 
-addcodedata = "aaaa"
-editdescdata = "bbbb"
-add_code = 'design0130'
+addcodedata = "aaaa"+ str(random.randint(0,199))
+editdescdata = "bbbb"+ str(random.randint(0,199))
+add_code = 'design0130'+ str(random.randint(0,199))
 add_code1 = 'importgongxu'+ str(random.randint(0,199))
 
-signpathmidata = "223344"
+signpathmidata = "MI202202"+ str(random.randint(0,199))

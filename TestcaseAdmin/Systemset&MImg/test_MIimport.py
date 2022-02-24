@@ -11,6 +11,7 @@ from DataAdmin.MIData import *
 from src.public.common.Login import *
 from src.public.common.Search_Item import *
 
+
 class Test_MImanage:
     def setup_class(self):
         sleep(2)
@@ -27,7 +28,7 @@ class Test_MImanage:
     # 筛选MI
     def test_mimanage_search(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        search_item('MI编码',add_code1)
+        search_item('MI编码', add_code1)
         sleep(2)
         assert new_page_source(add_code1)
 
@@ -35,7 +36,7 @@ class Test_MImanage:
     def test_mimanage_import(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         mimanage_design_into()
-        mimanage_design_import('gongxu.json')
+        mimanage_design_import('flows.json')
         sleep(4)
         mimanage_design_delete_tab()
         mimanage_design_close()
@@ -54,3 +55,5 @@ class Test_MImanage:
         sleep(2)
         assert '已发布' in new_get_text("//div[@role='row' and @row-index='0']//span[@aria-colindex='6']")
         search_item('MI编码', ' ')
+        sleep(1)
+        new_click(promg)

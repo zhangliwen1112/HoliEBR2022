@@ -18,15 +18,14 @@ from src.public.common.Search_Item import *
 
 class Test_Opcset:
     def setup_class(self):
-        admin_login(username, password)
+        sleep(2)
         login_opcset()
 
-    def teardown_class(self):
-        admin_logout()
 
     # 新增opc设置
     def test_add_opcset(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        sleep(2)
         opcset_add(addnamedata,addcodedata,addaddressdata)
         time.sleep(2)
         assert new_page_source(addcodedata)
@@ -76,10 +75,8 @@ class Test_Opcset:
         select_item(addnamedata)
         opcset_delete()
         assert new_page_source(addnamedata)
+        sleep(2)
+        new_click(syset)
 
 
-
-
-if __name__ == '__main__':
-    pytest.main(['-s', 'test_opcsetcase.py'])
 

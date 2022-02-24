@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 
 """
 Created on 2020/9/15
@@ -17,7 +17,7 @@ from src.public.common.Search_Item import *
 
 class Test_Codeconfig:
     def setup_class(self):
-        admin_login(username, password)
+        sleep(3)
         login_codeconfig()
 
     # 新增编码配置
@@ -59,9 +59,6 @@ class Test_Codeconfig:
         codeconfig_delete()
         time.sleep(2)
         assert new_page_source(addcodedata) == False
+        sleep(1)
+        new_click(syset)
 
-
-
-
-if __name__ == '__main__':
-    pytest.main(['-s', 'test_Codeconfigcase.py'])

@@ -20,7 +20,7 @@ delete = '//div[@class="left"]//i[@class="ivu-icon ivu-icon-md-remove"]'
 
 # 新增/编辑签名策略名称/备注
 name_remark = '//input[@placeholder="请输入" and @class="ivu-input ivu-input-default"]'
-yes_button = '//div[@class="ivu-modal-footer"]//span[text()="确定"]'
+yes_button = "//div[@class='ivu-modal-wrap']//span[contains(text(),'确定')]"
 cancel_button = '//div[@class="ivu-modal"]//span[contains(text(),"取消")]'
 
 #删除界面

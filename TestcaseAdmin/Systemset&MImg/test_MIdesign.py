@@ -63,3 +63,4 @@ class Test_MImanage:
         assert (is_text_present(add_code),'删除不成功！')
         search_item('MI编码',' ')
         sleep(1)
+        new_click(promg)

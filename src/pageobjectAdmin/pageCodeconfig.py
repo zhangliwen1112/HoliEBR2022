@@ -31,7 +31,8 @@ def codeconfig_add(addcode, addname, adddesc, addcircleway):
         new_click(circlevalue3)
     elif addcircleway == "最大值":
         new_click(circlevalue4)
-    new_click(yes_button)
+    ele = new_find_elements(yes_button)
+    new_click_ele(ele[1])
 
 # 编辑编码配置
 def codeconfig_edit(editname, editdesc, editcircleway):
@@ -47,7 +48,8 @@ def codeconfig_edit(editname, editdesc, editcircleway):
         new_click(circlevalue3)
     elif editcircleway == "最大值":
         new_click(circlevalue4)
-    new_click(yes_button)
+    ele = new_find_elements(yes_button)
+    new_click_ele(ele[1])
 
 # 删除编码配置
 def codeconfig_delete():

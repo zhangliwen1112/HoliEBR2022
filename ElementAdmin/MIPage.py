@@ -117,7 +117,7 @@ upload_out = "//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g'][4]/*[n
 options_btn = "//a[@id='btn-deploy-options']"
 import_btn = "//a[@id='flow-import']"
 upload_btn = "//a[@id='import-file-upload-btn']"
-upload_submit = "//button//span[text()='导入']"
+upload_submit = "//button[@id='mi-dialog-ok']//span[text()='导入']"
 current = "//a[@id ='import-tab-current']"
 new = "//a[@id ='import-tab-new']"
 flow_tab1 = "//a[@class='red-ui-tab-label']"

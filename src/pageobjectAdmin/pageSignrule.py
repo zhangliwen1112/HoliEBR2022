@@ -19,19 +19,22 @@ def signrule_add(addname):
     new_click(add)
     ele = new_find_elements(name)
     new_send_keys_ele(ele[3], addname)
-    ele = new_find_elements(yes_button)
-    new_click_ele(ele[3])
+    new_click(yes_button)
+    # ele = new_find_elements(yes_button)
+    # new_click_ele(ele[3])
 
 # 编辑签名规则
 def signrule_edit(editname):
     new_click(edit)
     ele = new_find_elements(name)
     new_type_ele(ele[3], editname)
-    ele = new_find_elements(yes_button)
-    new_click_ele(ele[3])
+    new_click(yes_button)
+    # ele = new_find_elements(yes_button)
+    # new_click_ele(ele[3])
 
 # 删除签名规则
 def signrule_delete():
     new_click(delete)
-    ele = new_find_elements(yes_button)
-    new_click_ele(ele[2])
+    new_click(submit)
+    # ele = new_find_elements(yes_button)
+    # new_click_ele(ele[2])

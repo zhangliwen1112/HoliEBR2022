@@ -18,11 +18,9 @@ from src.public.common.Search_Item import *
 
 class Test_MImanage:
     def setup_class(self):
-        admin_login(username, password)
+        sleep(2)
         login_mimanage()
 
-    def teardown_class(self):
-        admin_logout()
 
     # 新增MI
     def test_add_mimanage(self):
@@ -57,5 +55,6 @@ class Test_MImanage:
         mimanage_delete()
         time.sleep(2)
         assert new_page_source(addcodedata) == False
+        new_click(promg)
 
 

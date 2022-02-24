@@ -28,7 +28,7 @@ circlevalue1 = '//li[text()="年"]'
 circlevalue2 = '//li[text()="月"]'
 circlevalue3 = '//li[text()="日"]'
 circlevalue4 = '//li[text()="最大值"]'
-yes_button = '//button[@class="ivu-btn ivu-btn-primary"]//span[text()="确定"]'
+yes_button = '//button[@class="ivu-btn ivu-btn-primary"]//span[contains(text(),"确定")]'
 cancel_button = '//span[contains(text(),"取消")]'
 
 # 删除界面

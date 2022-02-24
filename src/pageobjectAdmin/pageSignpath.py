@@ -26,9 +26,9 @@ def signpath_add(addcode, addname, addlevel):
     new_click(group)
     new_click(admingp)
     ele = new_find_elements(yes_button)
-    new_click_ele(ele[2])
-    ele = new_find_elements(yes_button)
     new_click_ele(ele[1])
+    ele = new_find_elements(yes_button)
+    new_click_ele(ele[0])
 
 # 新增签名路径，签名级别异常
 def signpath_add_abnormal(addcode, addname, addlevel):
@@ -50,7 +50,7 @@ def signpath_edit(editname):
     ele = new_find_elements(code_name_level)
     new_type_ele(ele[1], editname)
     ele = new_find_elements(yes_button)
-    new_click_ele(ele[1])
+    new_click_ele(ele[0])
 
 # 验证签名路径
 def signpath_verify():
@@ -63,4 +63,4 @@ def signpath_cancelverify():
 # 删除签名路径
 def signpath_delete():
     new_click(delete)
-    new_click(yes_button)
+    new_click(submit)
