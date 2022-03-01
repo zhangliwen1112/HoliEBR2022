@@ -10,6 +10,7 @@ import pytest
 import sys
 import random,string
 from DataApp.MaterialData import *
+from src.public.common.Close_current_tab import Close_current_tab
 from src.public.common.Login import *
 from src.pageobjectAPP.pageMaterial import *
 from src.public.common.Select_Item import *
@@ -25,12 +26,11 @@ addcodedata = ''.join(random.sample(string.ascii_letters + string.digits, 4))
 
 class Test_Material:
     def setup_class(self):
-        app_login(username, password)
         login_material()
+        sleep(2)
 
-    # def teardown_class(self):
-    #     Close_current_tab()
-    #     app_logout()
+    def teardown_class(self):
+        Close_current_tab()
 
     # 编码异常
     def test_addmaterial_codeerror1(self):
@@ -81,5 +81,3 @@ class Test_Material:
 
 
 
-if __name__ == '__main__':
-    pytest.main(['-s','test_material.py'])

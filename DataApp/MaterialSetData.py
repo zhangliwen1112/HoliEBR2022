@@ -24,11 +24,8 @@ error = '2'
 # -----------------------------------------异常数据--称量间误差异常------------------------------------------------------
 weight_error1 = "1.23"  # 非整数，小数
 weight_error2 = "10000" # 超过边界值9999
-weight_error_abnormal_list = [(desc_text, material_type, material_unit, material_potency, weight_error1,
-                               material_validity, va_unit, alarm, qty, rule),
-                              (desc_text, material_type, material_unit, material_potency, weight_error2,
-                               material_validity, va_unit, alarm, qty, rule)
-                              ]
+weight_error3 = "-2"  # 负数
+weight_error_abnormal_list = [weight_error1,weight_error2,weight_error3]
 # -----------------------------------------异常数据--有效期异常----------------------------------------------------------
 material_validity1 = "1.55"  # 非整数
 material_validity2 = "100000"  # 大于99999

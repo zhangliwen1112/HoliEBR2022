@@ -44,8 +44,8 @@ def Material_Set_edit(isMand=None, isImpac=None):
 
 
 # 默认值设置: 设置描述、库存单位、效价、有效期、区域、区域信息等
-def Material_Set_default(desc_text, material_type, material_unit, material_potency, error, material_validity, va_unit,
-                         alarm, qty, rule):
+def Material_Set_default(desc_text=None, material_type=None, material_unit=None, material_potency=None, error=None, material_validity=None, va_unit=None,
+                         alarm=None, qty=None, rule=None):
     new_click(default)
     sleep(1)
     new_type_double(desc, desc_text)
@@ -103,19 +103,22 @@ def Material_Set_default(desc_text, material_type, material_unit, material_poten
     sleep(1)
 
     # 称量信息
-    new_type_double(weight_error, error)
-    # 异常处理
-    if is_element_present(error_message):
-        new_get_text(error_message)
-        sleep(1)
-        new_click(no_button)
-        return
-    elif is_element_present(error_message2):
-        new_get_text(error_message2)
-        sleep(1)
-        new_click(no_button)
-        return
+    inputtext = new_find_elements(input_text)
+    new_type_double_ele(inputtext[10], error)
     sleep(1)
+
+    # # 异常处理
+    # if is_element_present(error_message):
+    #     new_get_text(error_message)
+    #     sleep(1)
+    #     new_click(no_button)
+    #     return
+    # elif is_element_present(error_message2):
+    #     new_get_text(error_message2)
+    #     sleep(1)
+    #     new_click(no_button)
+    #     return
+    # sleep(1)
     new_click(weight_mode)
     new_click(gross)
     new_click(manual)
@@ -123,47 +126,47 @@ def Material_Set_default(desc_text, material_type, material_unit, material_poten
     sleep(1)
 
     # 批次信息
-    new_type_double(validity, material_validity)
-    # 异常处理
-    if is_element_present(error_message):
-        new_get_text(error_message)
-        sleep(1)
-        new_click(no_button)
-        return
-    elif is_element_present(error_message2):
-        new_get_text(error_message2)
-        sleep(1)
-        new_click(no_button)
-        return
+    new_type_double_ele(inputtext[14], error)
+    # # 异常处理
+    # if is_element_present(error_message):
+    #     new_get_text(error_message)
+    #     sleep(1)
+    #     new_click(no_button)
+    #     return
+    # elif is_element_present(error_message2):
+    #     new_get_text(error_message2)
+    #     sleep(1)
+    #     new_click(no_button)
+    #     return
     new_click(validity_unit)
     if va_unit == '日':
         new_click(validity_day)
     else:
         new_click(validity_month)
     new_type_double(validity_alarm, alarm)
-    # 异常处理
-    if is_element_present(error_message):
-        new_get_text(error_message)
-        sleep(1)
-        new_click(no_button)
-        return
-    elif is_element_present(error_message2):
-        new_get_text(error_message2)
-        sleep(1)
-        new_click(no_button)
-        return
-    new_type_double(sample_qty, qty)
-    # 异常处理
-    if is_element_present(error_message):
-        new_get_text(error_message)
-        sleep(1)
-        new_click(no_button)
-        return
-    elif is_element_present(error_message2):
-        new_get_text(error_message2)
-        sleep(1)
-        new_click(no_button)
-        return
+    # # 异常处理
+    # if is_element_present(error_message):
+    #     new_get_text(error_message)
+    #     sleep(1)
+    #     new_click(no_button)
+    #     return
+    # elif is_element_present(error_message2):
+    #     new_get_text(error_message2)
+    #     sleep(1)
+    #     new_click(no_button)
+    #     return
+    new_type_double_ele(inputtext[16], qty)
+    # # 异常处理
+    # if is_element_present(error_message):
+    #     new_get_text(error_message)
+    #     sleep(1)
+    #     new_click(no_button)
+    #     return
+    # elif is_element_present(error_message2):
+    #     new_get_text(error_message2)
+    #     sleep(1)
+    #     new_click(no_button)
+    #     return
 
     # 区域信息
     new_click(default_pallet)

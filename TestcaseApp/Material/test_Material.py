@@ -29,7 +29,6 @@ class Test_Material:
 
     def teardown_class(self):
         Close_current_tab()
-        app_logout()
 
     # 新增物料
     def test_add_material(self):
@@ -106,7 +105,3 @@ class Test_Material:
         search_item("编码", ' ')
 
 
-
-
-if __name__ == '__main__':
-    pytest.main(['-s','test_material.py'])

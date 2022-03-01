@@ -6,7 +6,7 @@
 
 # 登录页码元素
 material = "//*[contains(text(),'物料管理')]"
-materialset = "//*[contains(text(),'物料字段设置')]"
+materialset = "//*[contains(text(),'物料属性设置')]"
 
 # 物料字段设置上端按钮
 edit = "//span[contains(.,'编辑')]"
@@ -23,7 +23,7 @@ no_button = "//span[text()='取消']"
 
 # -----------------------------默认值设置页面元素-----------------------------
 # 描述
-desc = "//div[@class='flex sm12']//textarea[@rows='2']"
+desc = "//textarea[@rows='2']"
 # 基础信息
 family = "//div[2]/div[1]/div/div/div[1]/div[2]/div[1]/div/div/div[1]/div/input"
 EC = "//form/div[2]/div[1]/div/div/div[1]/div[2]/div[2]/div/div/div[1]/div/input"
@@ -53,8 +53,12 @@ S = "//div[@role='listbox']//div[text()='mg/ml  S']"
 T = "//div[@role='listbox']//div[text()='iu/ml  T']"
 V = "//div[@role='listbox']//div[text()='iu/g   V']"
 info_title = "//button[contains(.,' 主要')]"
+
+# 公共元素
+input_text = "//div[@class='v-card v-sheet theme--light']//div[@class='v-text-field__slot']//input"
+select = "//div[@class='v-select__selection v-select__selection--comma']"
+
 # 称量信息
-weight_error = "//form/div[2]/div[2]/div/div/div[1]/div[2]/div[2]/div/div/div[1]/div/input"
 error_message = "//div[@class='v-messages__message message-transition-enter-to']"
 weight_mode = '//*[@id="materialContent"]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div/div[1]/div[1]/div[1]'
 net = "//div[@role='listbox']//div[text()='净重']"

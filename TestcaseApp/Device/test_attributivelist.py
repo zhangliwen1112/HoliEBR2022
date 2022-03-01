@@ -6,6 +6,7 @@
 
 import sys
 import allure
+import pytest
 from src.pageobjectAPP.pageAttributivelist import *
 from src.public.common.Close_current_tab import Close_current_tab
 from src.public.common.Search_Item import search_item
@@ -13,28 +14,39 @@ from src.public.common.Search_Item import search_item
 @allure.feature('属性列表功能')
 class Test_AttributiveList:
     def setup_class(self):
-        app_login(username, password)
+        sleep(1)
         login_attributive_list()
+        sleep(1)
 
     def teardown_class(self):
         Close_current_tab()
-        app_logout()
 
-    # 新增属性
-    @allure.feature('新增属性功能')
-    def test_attributive_list_add(self):
+    # 新增属性-状态属性、列表属性、数字属性
+    @allure.feature('新增属性功能-状态属性、列表属性、数字属性')
+    @pytest.mark.parametrize('attributive_code,attributive_type,attributive_name',attributive_list)
+    def test_attributive_list_add_001(self,attributive_code,attributive_type,attributive_name):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        add_attributive_list(attributive_code, attributive_type, attributive_name)
-        sleep(1)
+        add_attributive_list(attributive_code,attributive_type,attributive_name)
+        search_item('编码',attributive_code)
+        sleep(2)
         assert is_text_present(attributive_name)
+        search_item(' ', attributive_code)
 
+    # 新增属性-状态属性、列表属性、数字属性
+    @allure.feature('新增属性功能-文本属性')
+    @pytest.mark.parametrize('code,type,name,text',attributive_text)
+    def test_attributive_list_add_002(self,code,type,name,text):
+        log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        add_attributive_list(code,type,name,text)
+        sleep(1)
+        assert is_text_present(name)
     # 筛选
     @allure.feature('筛选属性功能')
     def test_attributive_list_search(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        search_item('编码',attributive_code)
+        search_item('编码',attributive_code1)
         sleep(1)
-        assert is_text_present(attributive_name)
+        assert is_text_present(attributive_name1)
 
     # 编辑
     @allure.feature('编辑属性功能')
@@ -73,6 +85,7 @@ class Test_AttributiveList:
     def test_status_rule_delete(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         edit_button()
+        sleep(1)
         delete_rule()
         sleep(1)
         assert (is_text_present("生产步骤"),'删除失败！')
@@ -87,7 +100,7 @@ class Test_AttributiveList:
         assert is_text_present("xiugai")
         submit_button()
 
-    # 编辑状态信息
+    # 删除状态信息
     def test_status_delete(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         edit_button()
